@@ -89,8 +89,7 @@ fun Project.fatJar() = also {
 }
 
 listOf(
-    project("test-plugin:library").runPaper(),
-    project("test-plugin:shade").runPaper().shadowJar()
+    project("test-plugin:library").runPaper()
 ).forEach {
     it.paper()
         .fatJar()
