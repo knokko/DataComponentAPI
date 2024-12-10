@@ -70,6 +70,7 @@ val dist = project("dist").paper().dependency(api)
 val nms = listOf(
     project("nms:v1_20_R4").paperweight(),
     project("nms:v1_21_R1").paperweight(),
+    project("nms:v1_21_R3").paperweight(),
 )
 
 nms.forEach {
