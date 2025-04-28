@@ -1,7 +1,7 @@
 plugins {
     id("java")
     id("io.github.goooler.shadow") version("8.1.7")
-    id("io.papermc.paperweight.userdev") version("1.7.1") apply(false)
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.16"
     id("xyz.jpenilla.run-paper") version("2.3.0")
     `maven-publish`
 }
@@ -11,7 +11,7 @@ allprojects {
     apply(plugin = "java")
 
     group = "kr.toxicity.libraries.datacomponent"
-    version = "1.0.11"
+    version = "1.0.12"
 
     repositories {
         mavenCentral()
@@ -52,7 +52,11 @@ fun Project.dependency(dependency: Any) = also {
     }
 }
 
-fun Project.paper() = dependency("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
+dependencies {
+    paperweight.paperDevBundle("1.21.4-R0.1-SNAPSHOT")
+}
+
+fun Project.paper() = dependency("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
 fun Project.paperweight() = also {
     it.apply(plugin = "io.papermc.paperweight.userdev")
 }
@@ -71,6 +75,7 @@ val nms = listOf(
     project("nms:v1_20_R4").paperweight(),
     project("nms:v1_21_R1").paperweight(),
     project("nms:v1_21_R3").paperweight(),
+    project("nms:v1_21_R4").paperweight(),
 )
 
 nms.forEach {

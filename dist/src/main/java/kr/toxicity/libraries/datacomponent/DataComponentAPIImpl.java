@@ -2,7 +2,7 @@ package kr.toxicity.libraries.datacomponent;
 
 import com.google.gson.*;
 import kr.toxicity.libraries.datacomponent.api.*;
-import kr.toxicity.libraries.datacomponent.nms.v1_21_R3.NMSImpl;
+import kr.toxicity.libraries.datacomponent.nms.v1_21_R4.NMSImpl;
 import org.bukkit.Bukkit;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -30,7 +30,9 @@ public final class DataComponentAPIImpl extends DataComponentAPI {
         } else if (current.equals(MinecraftVersionImpl.V1_21) || current.equals(MinecraftVersionImpl.V1_21_1)) {
             nms = new NMSImpl();
         } else if (current.equals(MinecraftVersionImpl.V1_21_4)) {
-            nms = new kr.toxicity.libraries.datacomponent.nms.v1_21_R3.NMSImpl();
+            nms = new NMSImpl();
+        } else if (current.equals(MinecraftVersionImpl.V1_21_5)) {
+            nms = new NMSImpl();
         } else {
             throw new UnsupportedOperationException("Unsupported minecraft version: " + current);
         }
